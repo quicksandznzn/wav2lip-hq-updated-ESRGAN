@@ -237,7 +237,6 @@ def read_frames():
 
     while 1:
         still_reading, frame = video_stream.read()
-        print(frame)
         if not still_reading:
             video_stream.release()
             break
@@ -322,14 +321,12 @@ def main():
         img_batch = torch.FloatTensor(np.transpose(img_batch, (0, 3, 1, 2))).to(device)
         mel_batch = torch.FloatTensor(np.transpose(mel_batch, (0, 3, 1, 2))).to(device)
 
-        print("start",i,int(time.time()*1000))
         with torch.no_grad():
             pred = model(mel_batch, img_batch)
 
         pred = pred.cpu().numpy().transpose(0, 2, 3, 1) * 255.
 
         for p, f, c in zip(pred, frames, coords):
-            print("for",p, f, c,int(time.time()*1000))
             y1, y2, x1, x2 = c
 
             if args.save_frames:
@@ -356,7 +353,6 @@ def main():
             f[y1:y2, x1:x2] = p
             out.write(f)
 
-        print("end",i, int(time.time() * 1000))
     out.release()
 
     command = 'ffmpeg -y -i {} -i {} -strict -2 -q:v 1 {}'.format(args.audio, 'temp/result.avi', args.outfile)
