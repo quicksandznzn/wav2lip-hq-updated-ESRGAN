@@ -3,4 +3,5 @@ wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_
 wget https://github.com/GucciFlipFlops1917/wav2lip-hq-updated-ESRGAN/releases/download/v0.0.1/4x_BigFace_v3_Clear.pth -O ./checkpoints/4x_BigFace_v3_Clear.pth
 wget https://github.com/quicksandznzn/wav2lip-hq-updated-ESRGAN/releases/download/v1.0.0/face_segmentation.pth -O ./checkpoints/face_segmentation.pth
 wget https://github.com/quicksandznzn/wav2lip-hq-updated-ESRGAN/releases/download/v1.0.0/wav2lip_gan.pth -O ./checkpoints/wav2lip_gan.pth
+wget https://github.com/quicksandznzn/wav2lip-hq-updated-ESRGAN/releases/download/v1.0.0/wav2lip.pth -O ./checkpoints/wav2lip.pth
 #wget https://huggingface.co/Iceclear/StableSR/resolve/main/stablesr_000117.ckpt -O ./checkpoints/stablesr_000117.ckpt
