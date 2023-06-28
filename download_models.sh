@@ -5,3 +5,4 @@ wget https://github.com/quicksandznzn/wav2lip-hq-updated-ESRGAN/releases/downloa
 wget https://github.com/quicksandznzn/wav2lip-hq-updated-ESRGAN/releases/download/v1.0.0/wav2lip_gan.pth -O ./checkpoints/wav2lip_gan.pth
 wget https://github.com/quicksandznzn/wav2lip-hq-updated-ESRGAN/releases/download/v1.0.0/wav2lip.pth -O ./checkpoints/wav2lip.pth
 #wget https://huggingface.co/Iceclear/StableSR/resolve/main/stablesr_000117.ckpt -O ./checkpoints/stablesr_000117.ckpt
+wget https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/wav2lip.pth -O ./checkpoints/wav2lip_st.pth
