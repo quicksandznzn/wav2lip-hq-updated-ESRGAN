@@ -13,15 +13,11 @@ from basicsr.utils import imwrite, img2tensor, tensor2img
 from torchvision.transforms.functional import normalize
 from basicsr.utils.registry import ARCH_REGISTRY
 
-def load_sr(model_path, device, face):
+def load_sr(model_path, device, face,gfpgan_path):
     if not face=='codeformer':
         model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4) #alter to match dims as needed
         netscale = 4
         model_path = os.path.normpath(model_path)
-        if not os.path.isfile(model_path):
-            model_path = load_file_from_url(
-                url='https://github.com/GucciFlipFlops1917/wav2lip-hq-updated-ESRGAN/releases/download/v0.0.1/4x_BigFace_v3_Clear.pth',
-                model_dir='weights', progress=True, file_name=None)
         upsampler = RealESRGANer(
             scale=netscale,
             model_path=model_path,
@@ -36,7 +32,7 @@ def load_sr(model_path, device, face):
             run_params=upsampler
         else:
             gfp = GFPGANer(
-                model_path='../checkpoints/GFPGANv1.4.pth',
+                model_path=gfpgan_path,
                 upscale=2,
                 arch='clean',
                 channel_multiplier=2,

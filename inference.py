@@ -79,6 +79,7 @@ parser.add_argument('--save_as_video', action="store_true", default=False,
                     help='Whether to save frames as video', required=False)
 parser.add_argument('--image_prefix', type=str, default="",
                     help='Prefix to save frames with', required=False)
+parser.add_argument('--gfpgan_path', type=str, help='', required=False)
 
 args = parser.parse_args()
 args.img_size = 96
@@ -310,7 +311,7 @@ def main():
                 seg_net = init_parser(args.segmentation_path)
             if not args.no_sr == True:
                 print("Loading super resolution model...")
-                run_params = load_sr(args.sr_path, device, args.enhance_face)
+                run_params = load_sr(args.sr_path, device, args.enhance_face,args.gfpgan_path)
             model = load_model(args.checkpoint_path)
             print("Model loaded")
 
